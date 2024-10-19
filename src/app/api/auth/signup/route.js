@@ -14,7 +14,7 @@ export async function POST(req) {
     }
 
     // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = password
 
     // Insert the new user
     await db.collection('users').insertOne({
@@ -24,6 +24,10 @@ export async function POST(req) {
 
     return NextResponse.json({ message: 'User created successfully' }, { status: 201 })
   } catch (error) {
-    return NextResponse.json({ error: 'An error occurred' }, { status: 500 })
+    return NextResponse.json(      { 
+      error: 'An error occurred',
+      details: error.message 
+    }, 
+    { status: 500 })
   }
 }
