@@ -1,6 +1,5 @@
 import LocationSafetyAnalysis from "@/components/LocationSafetyAnalysis"
 import LogoutButton from "@/components/Logout"
-import TweetSearch from "@/components/Search"
 import { getServerSession } from "next-auth/next"
 import { redirect } from "next/navigation"
 
